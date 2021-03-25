@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Airplane {
-	SeatRow[] first_class = new SeatRow[5];
-	SeatRow[] economy_class = new SeatRow[15];
+	private SeatRow[] first_class = new SeatRow[5];
+	private SeatRow[] economy_class = new SeatRow[15];
 	public Airplane(){
 		for (int x = 0; x < 15; x++){
 			economy_class[x] = new SeatRow(6);
@@ -9,6 +9,14 @@ public class Airplane {
 		for (int x = 0; x < 5; x++){
 			first_class[x] = new SeatRow(4);
 		}
+	}
+
+	public SeatRow[] getFirstClass(){
+		return first_class;
+	}
+
+	public SeatRow[] getEconomyClass(){
+		return economy_class;
 	}
 
 	public String findSeats(int amountOfPeople, String type, ArrayList<String> preferences){
