@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class SeatRow {
 	// represents a row of seats, true if a person is sitting there and false otherwise
 	ArrayList<Boolean> row = new ArrayList<Boolean>();
@@ -8,7 +9,6 @@ public class SeatRow {
 			row.add(Boolean.valueOf(true));
 		}
 	}
-
 
 	public boolean getSeat(int location){
 		// location is a number from 0 - 5
@@ -54,7 +54,4 @@ public class SeatRow {
         //set location to true
         row.set(location, false);
 	}
-
-
 }
-

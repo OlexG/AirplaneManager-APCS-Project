@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+
 public class Airplane {
 	private SeatRow[] first_class = new SeatRow[5];
 	private SeatRow[] economy_class = new SeatRow[15];
+
 	public Airplane(){
 		for (int x = 0; x < 15; x++){
 			economy_class[x] = new SeatRow(6);
@@ -20,7 +22,7 @@ public class Airplane {
 	}
 
 	public String findSeats(int amountOfPeople, String type, ArrayList<String> preferences){
-		if (type == "economy"){
+		if (type.equals("economy")){
 			if (amountOfPeople > 3){
 				return "Too many people!";
 			}
@@ -42,7 +44,7 @@ public class Airplane {
 						String answer = "Economy class seats\n";
 						for (int seat:seats){
 							answer += "Seat at row " + (x + 1) + " and collumn " + (seat + 1) + "\n";
-							cur.setPerson(x);
+							cur.setPerson(seat);
 						}
 						return answer;
 					}
@@ -62,7 +64,7 @@ public class Airplane {
 						String answer = "Economy class seats\n";
 						for (int seat:seats){
 							answer += "Seat at row " + (x + 1) + " and collumn " + (seat + 1) + "\n";
-							cur.setPerson(x);
+							cur.setPerson(seat);
 						}
 						return answer;
 					}
@@ -71,7 +73,7 @@ public class Airplane {
 			return "Your preferences cannot be fulfilled";
 		}
 		else{
-			if (amountOfPeople > 4){
+			if (amountOfPeople > 2){
 				return "Too many people!";
 			}
 			for (int x = 0; x < 5; x++){
@@ -91,7 +93,7 @@ public class Airplane {
 						String answer = "First class seats\n";
 						for (int seat:seats){
 							answer += "Seat at row " + (x + 1) + " and collumn " + (seat + 1) + "\n";
-							cur.setPerson(x);
+							cur.setPerson(seat);
 						}
 						return answer;
 					}
@@ -111,7 +113,7 @@ public class Airplane {
 						String answer = "First class seats\n";
 						for (int seat:seats){
 							answer += "Seat at row " + (x + 1) + " and collumn " + (seat + 1) + "\n";
-							cur.setPerson(x);
+							cur.setPerson(seat);
 						}
 						return answer;
 					}
@@ -123,19 +125,19 @@ public class Airplane {
 
 	public boolean checkPreferencesEconomy(String side, ArrayList<String> preferences, SeatRow cur){
 		ArrayList<Integer> availableSeats = cur.getSeats();
-		if (side == "left"){
+		if (side.equals("left")){
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					if (!availableSeats.contains(2)){
 						return false;
 					}
 				}
-				else if (preference == "center"){
+				else if (preference.equals("center")){
 					if (!availableSeats.contains(1)){
 						return false;
 					}
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					if (!availableSeats.contains(0)){
 						return false;
 					}
@@ -144,17 +146,17 @@ public class Airplane {
 		}
 		else{
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					if (!availableSeats.contains(3)){
 						return false;
 					}
 				}
-				else if (preference == "center"){
+				else if (preference.equals("center")){
 					if (!availableSeats.contains(4)){
 						return false;
 					}
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					if (!availableSeats.contains(5)){
 						return false;
 					}
@@ -167,17 +169,17 @@ public class Airplane {
 	public ArrayList<Integer> getSeatsEconomy(String side, ArrayList<String> preferences, SeatRow cur, int amountOfPeople){
 		ArrayList<Integer> seats = new ArrayList<Integer>();
 
-		if (side == "left"){
+		if (side.equals("left")){
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					seats.add(2);
 					amountOfPeople -= 1;
 				}
-				else if (preference == "center"){
+				else if (preference.equals("center")){
 					seats.add(1);
 					amountOfPeople -= 1;
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					seats.add(0);
 					amountOfPeople -= 1;
 				}
@@ -196,15 +198,15 @@ public class Airplane {
 		}
 		else{
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					seats.add(3);
 					amountOfPeople -= 1;
 				}
-				else if (preference == "center"){
+				else if (preference.equals("center")){
 					seats.add(4);
 					amountOfPeople -= 1;
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					seats.add(5);
 					amountOfPeople -= 1;
 				}
@@ -226,14 +228,14 @@ public class Airplane {
 
 	public boolean checkPreferencesFirst(String side, ArrayList<String> preferences, SeatRow cur){
 		ArrayList<Integer> availableSeats = cur.getSeats();
-		if (side == "left"){
+		if (side.equals("left")){
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					if (!availableSeats.contains(1)){
 						return false;
 					}
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					if (!availableSeats.contains(0)){
 						return false;
 					}
@@ -242,12 +244,12 @@ public class Airplane {
 		}
 		else{
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					if (!availableSeats.contains(2)){
 						return false;
 					}
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					if (!availableSeats.contains(3)){
 						return false;
 					}
@@ -260,13 +262,13 @@ public class Airplane {
 	public ArrayList<Integer> getSeatsFirst(String side, ArrayList<String> preferences, SeatRow cur, int amountOfPeople){
 		ArrayList<Integer> seats = new ArrayList<Integer>();
 
-		if (side == "left"){
+		if (side.equals("left")){
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					seats.add(1);
 					amountOfPeople -= 1;
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					seats.add(0);
 					amountOfPeople -= 1;
 				}
@@ -285,11 +287,11 @@ public class Airplane {
 		}
 		else{
 			for (String preference:preferences){
-				if (preference == "aisle"){
+				if (preference.equals("aisle")){
 					seats.add(2);
 					amountOfPeople -= 1;
 				}
-				else if (preference == "window"){
+				else if (preference.equals("window")){
 					seats.add(3);
 					amountOfPeople -= 1;
 				}
