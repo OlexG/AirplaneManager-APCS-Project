@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AirplaneMenu {
-    
+
     //initializes the airplane, sets values to 0
 	public ArrayList<String> preferences = new ArrayList<String>();
 	public int numberOfPeople = 0;

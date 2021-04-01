@@ -7,7 +7,7 @@ public class AirplaneSeatingSystem {
         AirplaneMenu menu = new AirplaneMenu();
         while(true){
             // made by gorp airlines
-            menu.printPlane();
+            // menu.printPlane();
             menu.getType(input);
             menu.getPeople(input);
             menu.getPreferences(input);
